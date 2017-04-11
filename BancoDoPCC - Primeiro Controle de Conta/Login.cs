@@ -32,13 +32,12 @@ namespace BancoDoPCC___Primeiro_Controle_de_Conta
             finally { }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Hide();
-                CriarConta n2
-            }
+       // private void button2_Click(object sender, EventArgs e)
+       // {
+      //      try
+       //     {
+       //         this.Hide();
+       //     }
         }
     }
-}
+

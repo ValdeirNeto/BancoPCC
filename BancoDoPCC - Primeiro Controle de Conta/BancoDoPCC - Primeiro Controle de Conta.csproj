@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionDB.cs" />
     <Compile Include="Emprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
