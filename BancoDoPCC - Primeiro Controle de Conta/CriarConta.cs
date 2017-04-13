@@ -30,18 +30,28 @@ namespace BancoDoPCC___Primeiro_Controle_de_Conta
             command = connection.CreateCommand();
         }
 
-        private void createAccount_Click(object sender, EventArgs e)
-        { 
-            command.CommandText = "INSERT INTO Conta(nome, cpf, rg, endereco, numero, bairro, senha) VALUES (@nome, @cpf, @rg, @endereco, @numero, @bairro, @senha)";
-            command.Parameters.AddWithValue("@nome", txtName.Text);
-            command.Parameters.AddWithValue("@cpf", txtCpf.Text);
-            command.Parameters.AddWithValue("@rg", txtRg.Text);
-            command.Parameters.AddWithValue("@endereco", txtAddress.Text);
-            command.Parameters.AddWithValue("@numero", txtNumber);
-            command.Parameters.AddWithValue("@bairro", txtDistrict.Text);
-            command.Parameters.AddWithValue("@senha", Convert.ToInt16(txtPassword.Text));
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var nome = txtName.Text;
+            var cpf = txtCpf.Text;
+            var rg = txtRg.Text;
+            var endereco = txtAddress.Text;
+            var numero = txtNumber.Text;
+            var bairro = txtDistrict.Text;
+            var senha = txtPassword.Text;
 
-            command.ExecuteNonQuery();
+            ConnectionDB db = new ConnectionDB();
+
+            var resultado = db.Inserir(nome,cpf, rg, endereco, numero, bairro, senha);
+            if (resultado)
+            {
+                MessageBox.Show("Inserção OK");
+            }
+            else
+            {
+                MessageBox.Show("Falha na inserção, faça novamente");
+            }
+            this.Close();
         }
             
 

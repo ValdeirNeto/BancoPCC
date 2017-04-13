@@ -22,22 +22,50 @@ namespace BancoDoPCC___Primeiro_Controle_de_Conta
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            try {
+            //Ir ate o BD para buscar os valores e comparar
+            ConnectionDB con = new ConnectionDB();
+            var user = con.Buscar(textBox1.Text, textBox2.Text, textBox3.Text);
+
+            if (user == null)
+            {
+                MessageBox.Show("Usuário não encontrado");
+            }
+            else
+            {
+                if (user.Agencia == textBox1.Text && user.Senha == textBox2.Text)
+                {
+                    //MessageBox.Show("Login e senha OK");
+                    Menu menu = new Menu();
+                    menu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Login ou senha não conferem");
+                }
+                try
+                {
+                    this.Hide();
+                    Menu n = new Menu();
+                    n.Show();
+                }
+                finally { }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 this.Hide();
-                Menu n = new Menu();
+               Form6 n = new Form6 ();
                 n.Show();
             }
             finally { }
         }
-
-       // private void button2_Click(object sender, EventArgs e)
-       // {
-      //      try
-       //     {
-       //         this.Hide();
-       //     }
-        }
     }
+    }
+
 
